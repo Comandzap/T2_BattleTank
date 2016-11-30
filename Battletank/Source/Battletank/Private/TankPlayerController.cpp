@@ -2,6 +2,7 @@
 
 
 #include "Battletank.h"
+#include "Tank.h"
 #include "TankPlayerController.h"
 
 void ATankPlayerController::BeginPlay()
@@ -46,7 +47,6 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if(GetSightRayHitLocation(HitLocation))
 	{
 		GetControlledTank()->AimAt(HitLocation);
-		//UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
 	}
 }
 
@@ -61,9 +61,7 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
 	if (GetLookDirection(ScreenLocation, LookDiretion))
 	{
 		GetLockVectorHitLocation(LookDiretion, HitLocation);
-		//UE_LOG(LogTemp, Warning, TEXT("lookdiretion: %s"), *LookDiretion.ToString());
 	}
-	//HitLocation = FVector(1.0);
 	return true;
 }
 
